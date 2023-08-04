@@ -1,0 +1,6 @@
+As a Quality Analyst with 2 years of experience in Healthcare domain, I have a strong background in working with web applications
+developed using PEGA technology in an agile team. Additionally, I am a certified Google Cloud Practitioner and possess a good
+understanding of Python. Throughout my career, I have gained extensive experience in ensuring the quality of healthcare
+applications by conducting rigorous testing, identifying and resolving defects, and ensuring compliance with industry standards
+and regulations. I am adept at working in fast-paced environments and collaborating with cross-functional teams to ensure timely
+project delivery.
