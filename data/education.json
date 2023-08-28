@@ -1,0 +1,20 @@
+{
+    "Bachelor of Technology":{
+        "group": "Electronics and Communication Engineering",
+        "marks": "7.0 CGPA",
+        "school": "CMR Engineering College",
+        "period": "2016 — 2020"
+    },
+    "Intermediate":{
+        "group": "MPC",
+        "marks": "94%",
+        "school": "Sri Chaitanya Junior College",
+        "period": "2014 — 2016"
+    },
+    "SSC":{
+        "marks": "9.2 GPA",
+        "school": "Sri Chaitanya Junior College",
+        "period": "2002 — 2014"
+    }
+}
+    

@@ -3,6 +3,11 @@
 var about = document.getElementById('about');
 var skills_table = document.getElementById('skills_table');
 var experience = document.getElementById('experience_container');
+var education = document.getElementById('education_container');
+var certification = document.getElementById('certification_container');
+var achievement = document.getElementById('achievement_container');
+
+
 
 async function fill_about(){
     return (await fetch('data/bio.txt')).text();
@@ -16,15 +21,27 @@ async function fill_experience(){
     return (await fetch('data/experience.json')).json();
 }
 
+async function fill_education(){
+    return (await fetch('data/education.json')).json();
+}
+
+async function fill_certification(){
+    return (await fetch('data/certification.json')).json();
+}
+
+async function fill_achievement(){
+    return (await fetch('data/achievement.json')).json();
+}
+
 
 
 
 create_skills = (json) => {
-    skills_table.className = '';
             for(let head in json){
                 var tr = document.createElement('tr');
                 var th = document.createElement('th');
                 var td = document.createElement('td');
+                th.scope = 'row';
                 var contents = json[head];
                 var s = ''.concat(contents);
                 s = s.replaceAll(',', ', ');
@@ -43,17 +60,65 @@ create_experience = (json) => {
         var details = json[company];
         //var period = document.createElement('h4');
         title.textContent = company + "  |  " + details['period'];
+        title.className = 'card-title';
         //period.textContent = details['period'];
         var responsibilities = document.createElement('ul');
+        responsibilities.className = 'list-group list-group-flush';
         for(let i=0; i < details['responsibilities'].length; i++){
             var item = document.createElement('li');
             item.textContent = details['responsibilities'][i];
+            item.className = 'list-group-item';
             responsibilities.appendChild(item);
         }
         experience.className = '';
         experience.append(title, responsibilities);
 
 
+    }
+}
+
+create_education = (json) => {
+    for(let degree in json){
+        var item = document.createElement('li');
+        item.className = 'list-group-item';
+        var para = document.createElement('p');
+        var record = json[degree];
+        var period_span = document.createElement('span');
+        var data = degree;
+        if(Object.hasOwn(record, 'group')){
+            data += ' - ' + record['group'];
+        }
+        data += ' - ' + record['marks'];
+        data += ' - ' + record['school'];
+        period_span.textContent = record['period'];
+        period_span.className = 'float-end';
+        para.textContent = data;
+        para.appendChild(period_span);
+        item.appendChild(para);
+        education.append(item);
+
+    }
+}
+
+
+create_certification = (json) => {
+    var certificates = json['certificates'];
+    for(let i=0; i<certificates.length ; i++){
+        var item = document.createElement('li');
+        item.className = 'list-group-item';
+        item.textContent = certificates[i];
+        certification.appendChild(item);
+    }
+}
+
+
+create_achievement = (json) => {
+    var achievements = json['achievements'];
+    for(let i=0; i<achievements.length ; i++){
+        var item = document.createElement('li');
+        item.className = 'list-group-item';
+        item.textContent = achievements[i];
+        achievement.appendChild(item);
     }
 }
 
@@ -90,4 +155,37 @@ load_data = () => {
             console.log(error);
         }
     );
+
+    //load education
+    fill_education().then(
+        function(json){
+            create_education(json);
+        },
+        function(error){
+            console.log(error);
+        }
+    );
+
+
+    //load certifications
+    fill_certification().then(
+        function(json){
+            create_certification(json);
+        },
+        function(error){
+            console.log(error);
+        }
+    )
+
+
+     //load achievements
+     fill_achievement().then(
+        function(json){
+            create_achievement(json);
+        },
+        function(error){
+            console.log(error);
+        }
+    )
+
 };
