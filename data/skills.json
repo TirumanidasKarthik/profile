@@ -1,6 +1,6 @@
 {
     "Languages": ["Python", "SQL"],
-    "Tools": ["Django", "Google Cloud", "GIT", "qTest", "Microsoft MySQL server", "SOAP UI", "Excel"],
+    "Tools": ["Flask", "PySImpleGUI", "Google Cloud", "GIT", "qTest", "Microsoft MySQL server", "SOAP UI", "Excel"],
     "Communication": ["English", "Telugu", "Hindi"]
     
 }
