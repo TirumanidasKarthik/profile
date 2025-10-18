@@ -56,22 +56,29 @@ create_experience = (json) => {
 
     for(let company in json){
         var title = document.createElement('h4');
-        
-        var details = json[company];
-        //var period = document.createElement('h4');
-        title.textContent = company + "  |  " + details['period'];
+        title.textContent = company; 
         title.className = 'card-title';
-        //period.textContent = details['period'];
-        var responsibilities = document.createElement('ul');
-        responsibilities.className = 'list-group list-group-flush';
-        for(let i=0; i < details['responsibilities'].length; i++){
-            var item = document.createElement('li');
-            item.textContent = details['responsibilities'][i];
-            item.className = 'list-group-item';
-            responsibilities.appendChild(item);
+        experience.append(title);
+        var designations = json[company];
+        for(let desig in designations){
+            var details = designations[desig];
+
+            var subtitle = document.createElement('h6');
+            subtitle.textContent = details['client'] + " | " + details['period'];
+            subtitle.className = 'card-subtitle mb-2 text-muted';
+            //period.textContent = details['period'];
+            var responsibilities = document.createElement('ul');
+            responsibilities.className = 'list-group list-group-flush';
+            for(let i=0; i < details['responsibilities'].length; i++){
+                var item = document.createElement('li');
+                item.textContent = details['responsibilities'][i];
+                item.className = 'list-group-item';
+                responsibilities.appendChild(item);
+            }
+            experience.className = '';
+            var linebreak = document.createElement('hr');
+            experience.append(subtitle, responsibilities, linebreak);
         }
-        experience.className = '';
-        experience.append(title, responsibilities);
 
 
     }

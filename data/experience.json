@@ -1,16 +1,25 @@
 {
     "Tata Consultancy Services": {
-        "period": "2021-present",
-        "responsibilities": [
+        "Analyst": {
+            "client": "Humana",
+            "period": "2021-2023",
+            "responsibilities": [
             "Analysing user requirements and preparing test design.",
             "Providing test design walkthrough to business for approval.",
-            "Preparing/ pulling test data from database.",
             "Performing system integration testing for the scenarios identified and identifying bugs.",
             "Logging/ Tracking bugs till closure using qTest application.",
             "Preparing test signoff documents with detailed scenarios, tests covered and bugs identified.",
-            "Performing regression testing using automation scripts for multiple applications",
-            "Providing functional KT to automation team."
-
+            "Performing regression testing using automation scripts for multiple applications"
         ]
+        },
+        "Python Developer": {
+            "client": "Rolls Royce",
+            "period": "2023-present",
+            "responsibilities": [
+            "Developing backend services and APIs using Python and Flask framework.",
+            "Rewriting legacy code (Fortran) to Python for better performance and maintainability.",
+            "Developing GUI application using PySImpleGUI for customer internal tools."
+            ]
+        }
     }
 }
